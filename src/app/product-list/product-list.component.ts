@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   pageTitle: string = "Product List";
+  imageWidth: number = 50;
+  imageMargin: number = 2;
+  showImage: boolean = false;
   products: any[] = [
     {
       "productId": 2,
@@ -16,7 +19,7 @@ export class ProductListComponent implements OnInit {
       "description": "15 gallon capacity rolling garden cart",
       "price": 32.99,
       "starRating": 4.2,
-      "imageUrl": "assets/image/garden_cart.png"
+      "imageUrl": "assets/images/garden_cart.png"
     },
     {
       "productId": 5,
@@ -26,13 +29,17 @@ export class ProductListComponent implements OnInit {
       "description": "Curved claw steel hammer",
       "price": 8.9,
       "starRating": 4.8,
-      "imageUrl": "assets/image/hammer.png"
+      "imageUrl": "assets/images/hammer.png"
     }
   ];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleImage(): void {
+    this.showImage = !this.showImage;
   }
 
 }
