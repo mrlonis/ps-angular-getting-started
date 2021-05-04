@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("In the ngOnInit() Method...");
-    this.listFilter = "cart";
+    this.listFilter = "";
   }
 
   toggleImage(): void {
@@ -62,6 +62,11 @@ export class ProductListComponent implements OnInit {
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase()
     return this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().includes(filterBy));
+  }
+
+  onRatingClicked(message: string): void {
+    console.log("Received event from a nested component! Event Message: " + message);
+    this.pageTitle = "Product List: " + message;
   }
 
 }
