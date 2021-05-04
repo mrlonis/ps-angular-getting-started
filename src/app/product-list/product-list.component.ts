@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product/product.service';
 import { IProduct } from '../shared/iproduct';
 
 @Component({
@@ -12,47 +13,16 @@ export class ProductListComponent implements OnInit {
   imageMargin: number = 2;
   showImage: boolean = false;
 
-  private _listFilter: string = "";
-
-  get listFilter(): string {
-    return this._listFilter
-  }
-
-  set listFilter(value: string) {
-    this._listFilter = value;
-    console.log("listFilter(): Value = ", value);
-    this.filteredProducts = this.performFilter(value);
-  }
-
   filteredProducts: IProduct[] = [];
-  products: IProduct[] = [
-    {
-      "productId": 2,
-      "productName": "Garden Cart",
-      "productCode": "GDN-0023",
-      "releaseDate": "March 18, 2021",
-      "description": "15 gallon capacity rolling garden cart",
-      "price": 32.99,
-      "starRating": 4.2,
-      "imageUrl": "assets/images/garden_cart.png"
-    },
-    {
-      "productId": 5,
-      "productName": "Hammer",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2021",
-      "description": "Curved claw steel hammer",
-      "price": 8.9,
-      "starRating": 4.8,
-      "imageUrl": "assets/images/hammer.png"
-    }
-  ];
+  products: IProduct[] = [];
 
-  constructor() { }
+  private _listFilter: string = "";
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     console.log("In the ngOnInit() Method...");
-    this.listFilter = "";
+    this.products = this.productService.getProducts();
+    this.filteredProducts = this.products;
   }
 
   toggleImage(): void {
@@ -67,6 +37,16 @@ export class ProductListComponent implements OnInit {
   onRatingClicked(message: string): void {
     console.log("Received event from a nested component! Event Message: " + message);
     this.pageTitle = "Product List: " + message;
+  }
+
+  get listFilter(): string {
+    return this._listFilter
+  }
+
+  set listFilter(value: string) {
+    this._listFilter = value;
+    console.log("listFilter(): Value = ", value);
+    this.filteredProducts = this.performFilter(value);
   }
 
 }

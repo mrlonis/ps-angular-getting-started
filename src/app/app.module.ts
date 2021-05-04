@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
-import { StarComponent } from './shared/star-component/star.component';
+import { StarComponent } from './shared/star/star.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
