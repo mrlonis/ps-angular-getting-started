@@ -1,6 +1,8 @@
-# Apm
+# Angular: Getting Started
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+
+This project was created as a part of the [Angular: Getting Started](https://app.pluralsight.com/library/courses/angular-2-getting-started-update/table-of-contents) Pluralsight course by Deborah Kurata.
 
 ## Development server
 
