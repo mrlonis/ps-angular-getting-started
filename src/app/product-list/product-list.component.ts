@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from './iproduct';
+import { IProduct } from '../shared/iproduct';
 
 @Component({
   selector: 'pm-product-list',
