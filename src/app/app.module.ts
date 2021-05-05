@@ -1,15 +1,36 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { StarComponent } from './components/star/star.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
-import { StarComponent } from './shared/star/star.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule],
-  declarations: [AppComponent, ProductListComponent, ConvertToSpacesPipe, StarComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+    ])
+  ],
+  declarations: [
+    AppComponent,
+    ProductListComponent,
+    ConvertToSpacesPipe,
+    StarComponent,
+    ProductDetailComponent,
+    WelcomeComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
