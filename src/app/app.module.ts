@@ -8,7 +8,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { StarComponent } from './components/star/star.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { ProductDetailGuard } from './guards/product-detail.guard';
+import { ProductDetailGuard } from './guards/product-detail/product-detail.guard';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
 
 @NgModule({
